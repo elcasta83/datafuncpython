@@ -25,3 +25,41 @@ result1=count_entries(df,'lang')
 result2=count_entries(df,'lang','sourc')
 print(result1)
 print(result2)
+print("-----------End Function------")
+#Función que abre un archivo grande de datos
+def read_large_file(file_object):
+	while True:
+		data=file_object.readline()
+		if not data:
+			break
+		yield data
+
+with open ('world_ind_pop_data.csv') as file:
+	gen_file=read_large_file(file)
+	print(next(gen_file))
+	print(next(gen_file))
+	print(next(gen_file))
+print("-----------End Function------")
+#Función que filtra valores por etiqueta en DataFrame
+def filter_tag(reader, tag, valuetag, taginterest1, taginterest2):
+#Get the first dataFrame
+	df_pop=next(reader)
+#Check out the specific tag
+	df_ceb=df_pop[df_pop[tag]==valuetag]
+#Zip DataFrame columns of interest
+	interest=zip(df_ceb[taginterest1], df_ceb[taginterest2])
+	interest_list=list(interest)
+	return interest_list
+
+pd_read=pd.read_csv('world_ind_pop_data.csv', chunksize=1000)
+pd_interest=filter_tag(pd_read,'CountryCode','CEB','Total Population','Urban population (% of total)')
+print(pd_interest)
+
+print("-----------End Function------")
+
+
+
+
+
+
+
