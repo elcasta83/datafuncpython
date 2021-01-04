@@ -5,6 +5,19 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#LISTAS
+#Función que devuelve valores de una lista (máximo, mínimo, número de elementos)
+def value_list (lista):
+	maximo=max(lista)
+	minimo=min(lista)
+	num_elem=len(lista)
+	list_value=[maximo, minimo, num_elem]
+	return (list_value)
+prueba_lista=[1,2,3,4,5,8,9,10,15,68,321,-526,85,69]
+valores=value_list(prueba_lista)
+print(valores)
+print("-----------End Function------")
+
 #Función que analiza tweets de twitter de un archivo llamado 'tweets.csv'
 def count_entries(df, *args):
 	"""Return a dictionary with counts of occurrences as value for each key"""
