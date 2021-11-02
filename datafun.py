@@ -1,9 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
 # Repositorio de funciones útiles para utilizar con Datos en Python: Listas, Dataframes, Diccionarios, Numpy arrays...
-import numpy as np
+
 import pandas as pd
-import matplotlib.pyplot as plt
 
 #LISTAS
 #Función que devuelve valores de una lista (máximo, mínimo, número de elementos)
